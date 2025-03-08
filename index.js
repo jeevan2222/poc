@@ -11,8 +11,7 @@ app.use(express.static(path.join(__dirname, "public"))); // Serve static files
 // Home Route
 app.get("/", (req, res) => {
   res.send(
-    `<h1>Welcome to My Express App</h1>
-    <p>Use /name?id=yourname to see your name.</p>`
+    `<h1>Welcome to My Express App</h1>`
   );
 });
 
