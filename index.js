@@ -63,7 +63,16 @@ app.post("/users", async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
-
+app.get("/users", async (req, res) => {
+  try {
+    // Create user
+    const getAllUsers = await User.findAll();
+    res.status(201).json({ message: "Data Fetched successfully", data: getAllUsers });
+  } catch (error) {
+    console.error("Error creating user:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
 // Sync Database & Start Server
 sequelize.sync().then(() => {
   app.listen(port, () => {
